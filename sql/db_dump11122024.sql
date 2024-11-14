@@ -5,7 +5,7 @@
 -- Dumped from database version 16.4
 -- Dumped by pg_dump version 16.4
 
--- Started on 2024-11-12 20:27:46
+-- Started on 2024-11-14 14:08:31
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -33,11 +33,16 @@ CREATE SCHEMA crime_data;
 
 CREATE FUNCTION crime_data.upd_crime_data_part_key() RETURNS void
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-    UPDATE crime_data.la_crime_data_year_analysis
-    SET partition_unique_key = CONCAT_WS('~', EXTRACT(YEAR FROM incident_reported_date), record_entity_id);
-END;
+    AS $$
+
+BEGIN
+
+    UPDATE crime_data.la_crime_data_year_analysis
+
+    SET partition_unique_key = CONCAT_WS('~', EXTRACT(YEAR FROM incident_reported_date), record_entity_id);
+
+END;
+
 $$;
 
 
@@ -65,8 +70,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 )
@@ -97,8 +102,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2005 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -126,8 +131,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2006 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -155,8 +160,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2007 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -184,8 +189,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2008 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -213,8 +218,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2009 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -242,8 +247,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2010 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -271,8 +276,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2011 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -300,8 +305,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2012 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -329,8 +334,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2013 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -358,8 +363,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2014 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -387,8 +392,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2015 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -416,8 +421,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2016 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -445,8 +450,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2017 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -474,8 +479,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2018 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -503,8 +508,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2019 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -532,8 +537,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2020 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -561,8 +566,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2021 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -590,8 +595,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2022 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -619,8 +624,8 @@ CREATE TABLE crime_data.la_crime_data_year_analysis_2023 (
     gang_related character varying(100),
     unit_id character varying(100),
     unit_name character varying(100),
-    longitude numeric(9,6),
-    latitude numeric(8,6),
+    longitude numeric,
+    latitude numeric,
     part_category integer,
     partition_unique_key character varying(200)
 );
@@ -648,8 +653,8 @@ CREATE TABLE crime_data.nypd_arrest_data (
     perp_race character varying(200),
     x_coord_cd integer,
     y_coord_cd integer,
-    longitude numeric(9,6),
-    latitude numeric(8,6)
+    longitude numeric,
+    latitude numeric
 );
 
 
@@ -805,7 +810,7 @@ ALTER TABLE ONLY crime_data.la_crime_data_year_analysis ATTACH PARTITION crime_d
 ALTER TABLE ONLY crime_data.la_crime_data_year_analysis ATTACH PARTITION crime_data.la_crime_data_year_analysis_2023 FOR VALUES FROM ('2023') TO ('2024');
 
 
--- Completed on 2024-11-12 20:27:52
+-- Completed on 2024-11-14 14:08:36
 
 --
 -- PostgreSQL database dump complete
