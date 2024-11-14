@@ -1,0 +1,1 @@
+pg_dump -v -U john_user -h localhost -p 5432 -d crime_data_la  --schema-only -O  > "D:\AnalyticalReports- Development\AnalyticalReports-Development\sql\db_dump11122024.sql"
